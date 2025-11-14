@@ -1,3 +1,7 @@
-runs/
 *.pt
 *.avi
+*.mp4
+*.mkv
+runs/
+datasets/
+models/
