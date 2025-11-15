@@ -13,10 +13,15 @@ def read_video(video_path):
     return frames
 
 
-def save_video(output_video_framess, output_video_path):
-    fourcc = cv2.VideoWriter_fourcc(*'XVID')
-    out = cv2.VideoWriter(output_video_path, fourcc, 24,
-                          (output_video_framess[0].shape[1], output_video_framess[0].shape[1]))
-    for frame in output_video_framess:
+def save_video(frames, output_path):
+    height = frames[0].shape[0]
+    width = frames[0].shape[1]
+
+    fourcc = cv2.VideoWriter_fourcc(*"XVID")
+    out = cv2.VideoWriter(output_path, fourcc, 24,
+                          (width, height))  # Correct order!
+
+    for frame in frames:
         out.write(frame)
+
     out.release()
